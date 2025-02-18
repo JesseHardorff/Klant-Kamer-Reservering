@@ -1,3 +1,8 @@
+:root {
+  --bureau-orange: #FF8F1C;
+  --bureau-wit: #F4F4F4;
+  --bureau-zwart: #000000;
+}
 * {
   margin: 0;
   padding: 0;
