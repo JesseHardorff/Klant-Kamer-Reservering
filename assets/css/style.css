@@ -17,17 +17,6 @@
   margin: 0;
   padding: 0;
 }
-/* MARK: HEADER 
-*/
-.reserve-header {
-  display: flex;
-
-  width: 85%;
-  height: 14vh;
-  padding: 0 0;
-  margin: 2vh 10vw 10vh 10vw;
-  background-color: aqua
-}
 
 /* MARK: VANDAAG KALENDER 
 */
