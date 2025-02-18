@@ -25,3 +25,16 @@
   margin: 2vh 10vw 5vh 10vw;
   background-color: rgb(107, 51, 91);
 }
+
+.reserve-vandaag-tekst {
+  width: 100%;
+  height: 20%;
+  background-color: rgb(48, 153, 153);
+  border-radius: 100px 100px 0px 0px;
+}
+.reserveringen {
+  width: 100%;
+  height: 80%;
+
+  background-color: rgb(189, 205, 12);
+}
