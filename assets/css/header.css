@@ -38,7 +38,8 @@
     background-color: var(--bureau-zwart);
     color: var(--bureau-wit);
     
-    height: 49.726px;
+    /* height: 49.726px; */
+    height: 20%;
     width: 200px;
   
     font-size: large;
@@ -49,7 +50,8 @@
     background-color: var(--bureau-orange);
     color: var(--bureau-wit);
   
-    height: 74.589px;
+    /* height: 74.589px; */
+    height: 30%;
     width: 300px;
   
     font-size: 4em;
