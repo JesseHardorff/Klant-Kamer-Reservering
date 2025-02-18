@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.reserve-header {
+  width: 85%;
+  height: 14vh;
+  padding: 0 0;
+  margin: 2vh 10vw 10vh 10vw;
+  background-color: aqua;
+}
+.reserve-vandaag {
+  width: 80%;
+  height: 32vh;
+  padding: 0 0;
+  margin: 2vh 10vw 5vh 10vw;
+  background-color: rgb(125, 207, 84);
+}
+
+.reserve-rest {
+  width: 80%;
+  height: 32vh;
+  padding: 0 0;
+  margin: 2vh 10vw 5vh 10vw;
+  background-color: rgb(107, 51, 91);
+}
