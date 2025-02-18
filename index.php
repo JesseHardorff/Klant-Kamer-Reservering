@@ -17,7 +17,27 @@
     <!-- Header -->
     <header class="reserve-header">
         <div class="HETBUREAU-LOGO">
-            <img src="HETBUREAU-LOGO-ZWART.webp" alt="HETBUREAU-LOGO-ZWART">
+            <img src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
+        </div>
+        <div class="time-date-info">
+            <div class="label" id="time-label">Tijd:</div>
+            <div class="current" id="time-current">
+                <?php
+                echo date("H:i");
+                ?>
+            </div>
+            <div class="label" id="date-label">Datum:</div>
+            <div class="current" id="date-current">
+                <?php
+                echo date("d-m-Y");
+                ?>
+            </div>
+        </div>
+        <div class="qr">
+            <p>SCAN MIJ!</p>
+            <div class="qr-box">
+                <img src="qr-code.png" alt="qr-code">
+            </div>
         </div>
     </header>
     <!-- VANDAAG KALENDER -->
