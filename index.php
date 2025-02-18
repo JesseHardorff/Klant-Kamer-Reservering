@@ -13,7 +13,9 @@
 </head>
 <body>
 <header class="reserve-header">
-
+    <div class="HETBUREAU-LOGO">
+<img src="HETBUREAU-LOGO-ZWART.webp" alt="HETBUREAU-LOGO-ZWART">
+</div>
 </header>
 <div class="reserve-vandaag">
     <div class="reserve-vandaag-tekst">
