@@ -23,6 +23,7 @@
             <div class="label" id="time-label">Tijd:</div>
             <div class="current" id="time-current">
                 <?php
+                date_default_timezone_set('Europe/Amsterdam');
                 echo date("H:i");
                 ?>
             </div>
