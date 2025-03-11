@@ -94,7 +94,8 @@
   
   .qr-box {
     background-color: var(--bureau-orange);
-    width: 100%;
+    /* width: 100%; */
+    aspect-ratio: 1/1;
     height: 90%;
     display: flex;
     justify-content: center;
@@ -104,8 +105,10 @@
   .qr-box img {
     background-color: gray;
     
-    height: calc(100% - 4px);
-    width: calc(100% - 4px);
+    height: calc(98% - 4px);
+    aspect-ratio: 1/1;
+    /* width: calc(98% - 4px); */
+    /* aspect-ratio: 1/1; */
   }
 }
 
@@ -212,6 +215,6 @@
     
     /* height: calc(96% - 4px); */
     aspect-ratio: 1/1;
-    width: calc(96% - 4px);
+    width: calc(98% - 4px);
   }
 }
