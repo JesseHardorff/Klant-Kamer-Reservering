@@ -1,0 +1,66 @@
+/* MARK: MAIN CSS 
+*/
+
+:root {
+    --bureau-orange: #ff8f1c;
+    --bureau-wit: #f4f4f4;
+    --bureau-zwart: #000000;
+}
+  
+@font-face {
+    font-family: "BUROTO";
+    src: url("../../assets/fonts/BUROTO/BurotoRegular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "BUROTO", sans-serif;
+}
+
+body {
+    /* width: 100vw; */
+    height: 100%;
+    overflow: hidden;
+}
+
+/* MARK: LOGO
+*/
+
+.logo {
+    width: 60%;
+    aspect-ratio: 1/1;
+    margin-top: 5vw;
+    margin-inline: 20%;
+    margin-bottom: 10vw;
+    /* height: 100%; */
+
+    /* display: flex;
+    justify-content: center; */
+}
+
+.logo img {
+    width: 60vw;
+    /* height: 60vw; */
+    aspect-ratio: 1/1;
+}
+
+/* MARK: LOGIN
+*/
+
+.login {
+    /* background-color: turquoise; */
+    width: 100%;
+    /* height: calc(100vh - 50vw); */
+}
+
+.input-field {
+    width: calc(100% - 10vw);
+
+    margin-inline: 5vw;
+
+    border: none;
+    border-bottom: gray 1px solid;
+}
