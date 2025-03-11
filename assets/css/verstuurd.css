@@ -1,3 +1,8 @@
+:root {
+    --failed: #bb0000;
+    --success: #007800;
+}
+
 /* MARK: header
 */
 
@@ -29,19 +34,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    width: 100%;
 }
 
 .header-text {
     color: var(--bureau-zwart);
 
     align-self: center;
-    margin-left: 40vw;
-    transform: translate(-50%);
+    margin-left: 20vw;
+    /* transform: translate(-50%); */
 }
 
-
+.header-text-wrapper p {
+    transform: translate(50%);
+}
 
 /*  MARK: Status
 */
@@ -61,8 +66,38 @@
     padding: 2vw;
 }
 
+.status.success {
+    background-color: var(--success);
+}
+
+.status.failed {
+    background-color: var(--failed);
+}
+
 .status h2 {
     font-size: 7vw;
     font-weight: 700;
     margin-bottom: 7vw;
+}
+
+/*  MARK: DATA
+*/
+
+.data {
+    width: 90vw;
+
+    margin-top: 5vw;
+    margin-inline: 5vw;
+}
+
+.data h3 {
+    font-size: 6vw;
+    font-weight: 700;
+    /* margin-bottom: 2vw; */
+}
+
+.data p {
+    font-size: 5vw;
+    font-weight: 400;
+    margin-bottom: 2vw;
 }
