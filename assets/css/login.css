@@ -1,31 +1,3 @@
-/* MARK: MAIN CSS 
-*/
-
-:root {
-    --bureau-orange: #ff8f1c;
-    --bureau-wit: #f4f4f4;
-    --bureau-zwart: #000000;
-}
-  
-@font-face {
-    font-family: "BUROTO";
-    src: url("../../assets/fonts/BUROTO/BurotoRegular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-  
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "BUROTO", sans-serif;
-}
-
-body {
-    /* width: 100vw; */
-    height: 100%;
-    overflow: hidden;
-}
-
 /* MARK: LOGO
 */
 
