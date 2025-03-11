@@ -29,16 +29,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    width: 100%;
 }
 
 .header-text {
     color: var(--bureau-zwart);
 
     align-self: center;
-    margin-left: 40vw;
-    transform: translate(-50%);
+    margin-left: 20vw;
+    /* transform: translate(-50%); */
+}
+
+.header-text-wrapper p {
+    transform: translate(50%);
 }
 
 /*  MARK: RESERVE INFO

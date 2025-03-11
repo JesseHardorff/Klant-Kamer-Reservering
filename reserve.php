@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/reserve.css">
 
 
-    <title>Login</title>
+    <title>Reserveren</title>
     <link rel="icon" type="image/x-icon" href="BUREAU-LOGO.ico">
 
 </head>
@@ -17,7 +17,10 @@
         <div class="header-logo">
             <img src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
         </div>
-        <div class="header-text-wrapper"><h1 class="header-text">Reserveren</h1><p>als 230838</p></div>
+        <div class="header-text-wrapper">
+            <h1 class="header-text">Reserveren</h1>
+            <p>als 230838</p>
+        </div>
     </div>
     <div class="reserve-info">
         <h2>Reserveren</h2>
