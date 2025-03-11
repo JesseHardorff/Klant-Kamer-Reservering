@@ -37,7 +37,7 @@
         <div class="qr">
             <p>SCAN MIJ!</p>
             <div class="qr-box">
-                <img src="qr-code.png" alt="qr-code">
+                <img src="./assets/img/cornhub_qr.png" alt="qr-code">
             </div>
         </div>
     </header>
