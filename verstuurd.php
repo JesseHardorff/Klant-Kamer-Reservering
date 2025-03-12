@@ -19,7 +19,7 @@
         </div>
         <div class="header-text-wrapper"><h1 class="header-text">Verstuurd</h1><p>als 230838</p></div>
     </div>
-    <div class="status failed">
+    <div class="status success">
         <h2>Reservering verstuurd</h2>
         <p>Uw reservering is verstuurd naar de beheerder</p>
         <button class="submit-button">TERUG NAAR HOMEPAGE</button>

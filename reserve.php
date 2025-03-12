@@ -33,7 +33,7 @@
             <option class="lokaal-option">W003a</option>
             <option class="lokaal-option">W003b</option>
         </select>
-        <input class="input-field" type="date" placeholder="Datum">
+        <input class="input-field" type="date" placeholder="Datum" min="2025-03-11"> <!-- change so you can not do before current date-->
         <input class="input-field" type="time" placeholder="Start tijd"> <!-- build in usecases (check drive) -->
         <input class="input-field" type="time" placeholder="Eind tijd">
         <input class="input-field" type="text" placeholder="Klant">
@@ -42,7 +42,7 @@
             <option class="type-option">Team vergadering</option>
             <option class="type-option">Workshop</option>
         </select>
-        <button class="submit-button">VERSTUUR</button>
+        <button class="submit-button" type="submit">VERSTUUR</button>
         <!-- <p><a>Anuleer</a></p> -->
     </div>
 </body>
