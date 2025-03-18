@@ -237,6 +237,8 @@
   font-family: "BUROTO", sans-serif;
   color: #ffffff;
   font-size: 1.7rem;
+
+  line-break: anywhere;
 }
 
 .vandaag-div1 {
@@ -373,11 +375,15 @@
 [class^="plus-div"] {
   background-color: #1d1c1a;
   display: flex;
-  align-items: center;
+  align-items: center; /* If removed then the height can be decreased and there can be more rows */
   justify-content: center;
   font-family: "BUROTO", sans-serif;
   color: #ffffff;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  text-align: left;
+
+  line-break: anywhere;
+  overflow: hidden;
 }
 
 .plus-div1 {
