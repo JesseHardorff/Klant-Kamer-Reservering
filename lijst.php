@@ -39,10 +39,22 @@
             <input type="date">
             <input type="search">
         </div>
+        <div class="table-header">
+            <!-- <p></p><p></p><p>Datum</p><p>Start tijd</p><p>Eind tijd</p><p>Lokaal</p><p>Gepland door</p><p>Klant</p> -->
+        </div>
         <div class="table-wrapper">
             <table>
                 <thead>
-                    <tr class="table-header"><th></th><th></th><th>Datum</th><th>Start tijd</th><th>Eind tijd</th><th>Lokaal</th><th>Gepland door</th><th>Klant</th></tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Datum</th>
+                        <th>Start tijd</th>
+                        <th>Eind tijd</th>
+                        <th>Lokaal</th>
+                        <th>Gepland door</th>
+                        <th>Klant</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php
