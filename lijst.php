@@ -21,11 +21,12 @@
         </div>
         <div class="header-text-wrapper">
             <h1 class="header-text">Beheren</h1>
-            <p>als docent naam</p>
+            <p>als <i>docent naam</i></p>
         </div>
     </header>
     <div class="content">
         <!-- ADD A SEARCH AND SORT FUNCTION HERE -->
+         <div class="filter-bar"><input> &#128269</div>
         <table>
             <tr class="table-header"><th></th><th></th><th>Datum</th><th>Start tijd</th><th>Eind tijd</th><th>Lokaal</th><th>Gepland door</th><th>Klant</th></tr>
             <?php
