@@ -26,28 +26,46 @@
     </header>
     <div class="content">
         <!-- ADD A SEARCH AND SORT FUNCTION HERE -->
-         <div class="filter-bar"><input> &#128269</div>
-        <table>
-            <tr class="table-header"><th></th><th></th><th>Datum</th><th>Start tijd</th><th>Eind tijd</th><th>Lokaal</th><th>Gepland door</th><th>Klant</th></tr>
-            <?php
-                // Decode the JSON data
-                $obj = json_decode(file_get_contents("data.json"));
+         <div class="filter-bar">
+            <select>
+                <option value="all">Alle</option>
+                <option value="w002">W002</option>
+                <option value="w002a">W002a</option>
+                <option value="w002b">W002b</option>
+                <option value="w003">W003</option>
+                <option value="w003a">W003a</option>
+                <option value="w003b">W003b</option>
+            </select>
+            <input type="date">
+            <input type="search">
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr class="table-header"><th></th><th></th><th>Datum</th><th>Start tijd</th><th>Eind tijd</th><th>Lokaal</th><th>Gepland door</th><th>Klant</th></tr>
+                </thead>
+                <tbody>
+                    <?php
+                        // Decode the JSON data
+                        $obj = json_decode(file_get_contents("data.json"));
 
-                // Loop through the klantgespreken array
-                foreach($obj->klantgespreken as $key => $value) {
-            ?>
-            <tr class="table-item">
-                <td class="item-edit">EDIT</td>
-                <td class="item-delete">DELETE</td>
-                <td><?= $value->datum ?></td>
-                <td><?= $value->start ?></td>
-                <td><?= $value->eind ?></td>
-                <td><?= $value->Lokaal ?></td>
-                <td><?= $value->door ?></td>
-                <td><?= $value->klant ?></td>
-            </tr>
-            <?php
-                }
-            ?>
-        </table>
+                        // Loop through the klantgespreken array
+                        foreach($obj->klantgespreken as $key => $value) {
+                    ?>
+                    <tr class="table-item">
+                        <td class="item-edit">EDIT</td>
+                        <td class="item-delete">DELETE</td>
+                        <td><?= $value->datum ?></td>
+                        <td><?= $value->start ?></td>
+                        <td><?= $value->eind ?></td>
+                        <td><?= $value->Lokaal ?></td>
+                        <td><?= $value->door ?></td>
+                        <td><?= $value->klant ?></td>
+                    </tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
