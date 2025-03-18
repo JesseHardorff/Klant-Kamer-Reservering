@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/lijst.css">
 
-
     <title>Klant-Kamer-Reservering</title>
     <link rel="icon" type="image/x-icon" href="BUREAU-LOGO.ico">
-
 </head>
 
 <body>
@@ -25,19 +23,19 @@
         </div>
     </header>
     <div class="content">
-        <!-- ADD A SEARCH AND SORT FUNCTION HERE -->
-         <div class="filter-bar">
-            <select>
+        <!-- Filter en zoekfunctie -->
+        <div class="filter-bar">
+            <select id="lokaal-filter">
                 <option value="all">Alle</option>
-                <option value="w002">W002</option>
-                <option value="w002a">W002a</option>
-                <option value="w002b">W002b</option>
-                <option value="w003">W003</option>
-                <option value="w003a">W003a</option>
-                <option value="w003b">W003b</option>
+                <option value="W002">W002</option>
+                <option value="W002a">W002a</option>
+                <option value="W002b">W002b</option>
+                <option value="W003">W003</option>
+                <option value="W003a">W003a</option>
+                <option value="W003b">W003b</option>
             </select>
-            <input type="date">
-            <input type="search">
+            <input type="date" id="datum-filter">
+            <input type="search" id="zoek-filter" placeholder="Zoeken...">
         </div>
         <div class="table-wrapper">
             <table>
@@ -51,30 +49,61 @@
                         <th>Lokaal</th>
                         <th>Gepland door</th>
                         <th>Klant</th>
+                        <th>Type</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="reserveringen-tabel">
                     <?php
-                        // Decode the JSON data
-                        $obj = json_decode(file_get_contents("data.json"));
+                    // Database verbinding maken
+                    include_once "assets/core/connect.php";
 
-                        // Loop through the klantgespreken array
-                        foreach($obj->klantgespreken as $key => $value) {
-                    ?>
-                    <tr class="table-item">
-                        <td class="item-edit">EDIT</td>
-                        <td class="item-delete">DELETE</td>
-                        <td><?= $value->datum ?></td>
-                        <td><?= $value->start ?></td>
-                        <td><?= $value->eind ?></td>
-                        <td><?= $value->Lokaal ?></td>
-                        <td><?= $value->door ?></td>
-                        <td><?= $value->klant ?></td>
-                    </tr>
-                    <?php
+                    // Query om alle reserveringen op te halen
+                    $sql = "SELECT * FROM reserveringen ORDER BY datum ASC, start_tijd ASC";
+                    $result = $conn->query($sql);
+
+                    // Controleer of er resultaten zijn
+                    if ($result->num_rows > 0) {
+                        // Loop door alle resultaten
+                        while ($row = $result->fetch_assoc()) {
+                            // Formatteer de datum naar d-m-Y
+                            $formatted_date = date("d-m-Y", strtotime($row['datum']));
+                            ?>
+                            <tr class="table-item" data-id="<?= $row['reservering_id'] ?>">
+                                <td class="item-edit">EDIT</td>
+                                <td class="item-delete">DELETE</td>
+                                <td class="editable" data-field="datum"><?= $formatted_date ?></td>
+                                <td class="editable" data-field="start_tijd"><?= $row['start_tijd'] ?></td>
+                                <td class="editable" data-field="eind_tijd"><?= $row['eind_tijd'] ?></td>
+                                <td class="editable" data-field="lokaal"><?= $row['lokaal'] ?></td>
+                                <td class="editable" data-field="student_nummer"><?= $row['student_nummer'] ?></td>
+                                <td class="editable" data-field="klant"><?= $row['klant'] ?></td>
+                                <td class="editable" data-field="type"><?= $row['type'] ?></td>
+                            </tr>
+                            <?php
                         }
+                    } else {
+                        echo "<tr><td colspan='8'>Geen reserveringen gevonden</td></tr>";
+                    }
+                    $conn->close();
                     ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <!-- Bevestigingsmodal voor verwijderen -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h2>Weet je het zeker?</h2>
+            <p>Wil je deze reservering echt verwijderen?</p>
+            <div class="modal-buttons">
+                <button id="confirm-delete">Ja, verwijderen</button>
+                <button id="cancel-delete">Annuleren</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/lijst.js"></script>
+</body>
+
+</html>
