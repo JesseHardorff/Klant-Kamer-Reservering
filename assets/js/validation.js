@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Toon een foutmelding met de overlappende tijden
           let overlapMessage = "Dit lokaal is al gereserveerd tijdens deze tijd:";
           data.overlaps.forEach((overlap) => {
-            overlapMessage += `\n${overlap.start_tijd} - ${overlap.eind_tijd}`;
+            overlapMessage += `\n${overlap.lokaal}: ${overlap.start_tijd} - ${overlap.eind_tijd}`;
           });
 
           document.getElementById("eind-tijd-error").textContent = overlapMessage;

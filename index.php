@@ -1,3 +1,33 @@
+<?php
+// Database verbinding maken
+include_once "assets/core/connect.php";
+
+// Huidige datum in Y-m-d formaat
+$today = date("Y-m-d");
+
+// Query om reserveringen van vandaag op te halen, gesorteerd op starttijd (meest recente eerst)
+
+$sql = "SELECT * FROM reserveringen 
+        WHERE datum = ?
+        ORDER BY start_tijd DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $today);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Array om de reserveringen op te slaan
+$vandaag_reserveringen = [];
+while ($row = $result->fetch_assoc()) {
+    $vandaag_reserveringen[] = $row;
+}
+
+// Sluit de statement
+$stmt->close();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,51 +72,85 @@
         </div>
     </header>
     <!-- VANDAAG KALENDER -->
+
     <div class="reserve-vandaag">
         <div class="reserve-vandaag-tekst">
             VANDAAG:
         </div>
         <div class="reserveringen">
             <div class="parent">
-                <div class="vandaag-div1">Datum </div>
-                <div class="vandaag-div2"> </div>
-                <div class="vandaag-div3"> </div>
-                <div class="vandaag-div4"> </div>
-                <div class="vandaag-div5"> </div>
-                <div class="vandaag-div6"> </div>
-                <div class="vandaag-div7">Start Tijd </div>
-                <div class="vandaag-div8"> </div>
-                <div class="vandaag-div9"> </div>
-                <div class="vandaag-div10"> </div>
-                <div class="vandaag-div11"> </div>
-                <div class="vandaag-div12"> </div>
-                <div class="vandaag-div13">Eind Tijd </div>
-                <div class="vandaag-div14"> </div>
-                <div class="vandaag-div15"> </div>
-                <div class="vandaag-div16"> </div>
-                <div class="vandaag-div17"> </div>
-                <div class="vandaag-div18"> </div>
-                <div class="vandaag-div19">Lokaal </div>
-                <div class="vandaag-div20"> </div>
-                <div class="vandaag-div21"> </div>
-                <div class="vandaag-div22"> </div>
-                <div class="vandaag-div23"> </div>
-                <div class="vandaag-div24"> </div>
-                <div class="vandaag-div25"> Gepland door</div>
-                <div class="vandaag-div26"> </div>
-                <div class="vandaag-div27"> </div>
-                <div class="vandaag-div28"> </div>
-                <div class="vandaag-div29"> </div>
-                <div class="vandaag-div30"> </div>
-                <div class="vandaag-div31">Met wie </div>
-                <div class="vandaag-div32"> </div>
-                <div class="vandaag-div33"> </div>
-                <div class="vandaag-div34"> </div>
-                <div class="vandaag-div35"> </div>
-                <div class="vandaag-div36"> </div>
+                <div class="vandaag-div1">Datum</div>
+                <div class="vandaag-div7">Start Tijd</div>
+                <div class="vandaag-div13">Eind Tijd</div>
+                <div class="vandaag-div19">Lokaal</div>
+                <div class="vandaag-div25">Gepland door</div>
+                <div class="vandaag-div31">Met wie</div>
+
+                <?php
+                // Maximaal 5 reserveringen tonen (rij 2 t/m 6)
+                $max_rows = 5;
+                $row_count = 0;
+
+                foreach ($vandaag_reserveringen as $index => $reservering) {
+                    if ($row_count >= $max_rows)
+                        break;
+
+                    // Bereken de rij (2, 3, 4, 5, 6)
+                    $row_num = $row_count + 2;
+
+                    // Formatteer de datum naar d-m-Y
+                    $formatted_date = date("d-m-Y", strtotime($reservering['datum']));
+
+                    // Toon de gegevens in de juiste cellen
+                
+                    echo '<div class="vandaag-div' . $row_num . '">Vandaag</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 6) . '">' . $reservering['start_tijd'] . '</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 12) . '">' . $reservering['eind_tijd'] . '</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 18) . '">' . $reservering['lokaal'] . '</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 24) . '">' . $reservering['student_nummer'] . '</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 30) . '">' . $reservering['klant'] . '</div>';
+
+
+                    $row_count++;
+                }
+
+                // Vul de rest van de rijen met lege cellen als er minder dan 5 reserveringen zijn
+                for ($i = $row_count; $i < $max_rows; $i++) {
+                    $row_num = $i + 2;
+                    echo '<div class="vandaag-div' . $row_num . '"></div>';
+                    echo '<div class="vandaag-div' . ($row_num + 6) . '"></div>';
+                    echo '<div class="vandaag-div' . ($row_num + 12) . '"></div>';
+                    echo '<div class="vandaag-div' . ($row_num + 18) . '"></div>';
+                    echo '<div class="vandaag-div' . ($row_num + 24) . '"></div>';
+                    echo '<div class="vandaag-div' . ($row_num + 30) . '"></div>';
+                }
+                ?>
             </div>
         </div>
     </div>
+
+    <?php
+    // Query om toekomstige reserveringen op te halen, gesorteerd op datum en starttijd
+    $sql = "SELECT * FROM reserveringen
+    WHERE datum > ?
+    ORDER BY datum ASC, start_tijd ASC
+    LIMIT 5";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $today);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Array om de reserveringen op te slaan
+    $toekomstige_reserveringen = [];
+    while ($row = $result->fetch_assoc()) {
+        $toekomstige_reserveringen[] = $row;
+    }
+
+    // Sluit de statement
+    $stmt->close();
+    $conn->close();
+    ?>
 
     <!-- PLUS KALENDER -->
     <div class="reserve-plus">
@@ -95,45 +159,86 @@
         </div>
         <div class="reserveringen">
             <div class="parent">
-                <div class="plus-div1">Datum </div>
-                <div class="plus-div2"> </div>
-                <div class="plus-div3"> </div>
-                <div class="plus-div4"> </div>
-                <div class="plus-div5"> </div>
-                <div class="plus-div6"> </div>
-                <div class="plus-div7">Start Tijd </div>
-                <div class="plus-div8"> </div>
-                <div class="plus-div9"> </div>
-                <div class="plus-div10"> </div>
-                <div class="plus-div11"> </div>
-                <div class="plus-div12"> </div>
-                <div class="plus-div13">Eind Tijd </div>
-                <div class="plus-div14"> </div>
-                <div class="plus-div15"> </div>
-                <div class="plus-div16"> </div>
-                <div class="plus-div17"> </div>
-                <div class="plus-div18"> </div>
-                <div class="plus-div19">Lokaal </div>
-                <div class="plus-div20"> </div>
-                <div class="plus-div21"> </div>
-                <div class="plus-div22"> </div>
-                <div class="plus-div23"> </div>
-                <div class="plus-div24"> </div>
-                <div class="plus-div25"> Gepland door</div>
-                <div class="plus-div26"> </div>
-                <div class="plus-div27"> </div>
-                <div class="plus-div28"> </div>
-                <div class="plus-div29"> </div>
-                <div class="plus-div30"> </div>
-                <div class="plus-div31">Met wie </div>
-                <div class="plus-div32"> </div>
-                <div class="plus-div33"> </div>
-                <div class="plus-div34"> </div>
-                <div class="plus-div35"> </div>
-                <div class="plus-div36"> </div>
+                <div class="plus-div1">Datum</div>
+                <div class="plus-div7">Start Tijd</div>
+                <div class="plus-div13">Eind Tijd</div>
+                <div class="plus-div19">Lokaal</div>
+                <div class="plus-div25">Gepland door</div>
+                <div class="plus-div31">Met wie</div>
+
+                <?php
+                // Maximaal 5 reserveringen tonen (rij 2 t/m 6)
+                $max_rows = 5;
+                $row_count = 0;
+
+                foreach ($toekomstige_reserveringen as $index => $reservering) {
+                    if ($row_count >= $max_rows)
+                        break;
+
+                    // Bereken de rij (2, 3, 4, 5, 6)
+                    $row_num = $row_count + 2;
+
+                    // Bereken het verschil in dagen tussen nu en de reserveringsdatum
+                    $reservering_datum = new DateTime($reservering['datum']);
+                    $vandaag = new DateTime($today);
+                    $verschil = $reservering_datum->diff($vandaag)->days;
+
+                    // Bepaal hoe de datum moet worden weergegeven
+                    if ($verschil < 7) {
+                        // Voor datums binnen 7 dagen, toon de dagnaam
+                        $dagnaam = $reservering_datum->format('l'); // Geeft de Engelse dagnaam
+                
+                        // Vertaal de Engelse dagnaam naar Nederlands indien gewenst
+                        $dagnamen_nl = [
+                            'Monday' => 'Maandag',
+                            'Tuesday' => 'Dinsdag',
+                            'Wednesday' => 'Woensdag',
+                            'Thursday' => 'Donderdag',
+                            'Friday' => 'Vrijdag',
+                            'Saturday' => 'Zaterdag',
+                            'Sunday' => 'Zondag'
+                        ];
+
+                        $dagnaam_nl = $dagnamen_nl[$dagnaam];
+
+                        // Als het morgen is, toon "Morgen" in plaats van de dagnaam
+                        if ($verschil == 1) {
+                            $datum_tekst = "Morgen";
+                        } else {
+                            $datum_tekst = $dagnaam_nl;
+                        }
+                    } else {
+                        // Voor datums verder dan 7 dagen, toon de normale datum
+                        $datum_tekst = date("d-m-Y", strtotime($reservering['datum']));
+                    }
+
+                    // Toon de gegevens in de juiste cellen
+                    echo '<div class="plus-div' . ($row_num) . '">' . $datum_tekst . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 6) . '">' . $reservering['start_tijd'] . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 12) . '">' . $reservering['eind_tijd'] . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 18) . '">' . $reservering['lokaal'] . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 24) . '">' . $reservering['student_nummer'] . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 30) . '">' . $reservering['klant'] . '</div>';
+
+                    $row_count++;
+                }
+
+                // Vul de rest van de rijen met lege cellen als er minder dan 5 reserveringen zijn
+                for ($i = $row_count; $i < $max_rows; $i++) {
+                    $row_num = $i + 2;
+                    echo '<div class="plus-div' . ($row_num) . '"></div>';
+                    echo '<div class="plus-div' . ($row_num + 6) . '"></div>';
+                    echo '<div class="plus-div' . ($row_num + 12) . '"></div>';
+                    echo '<div class="plus-div' . ($row_num + 18) . '"></div>';
+                    echo '<div class="plus-div' . ($row_num + 24) . '"></div>';
+                    echo '<div class="plus-div' . ($row_num + 30) . '"></div>';
+                }
+                ?>
+
             </div>
         </div>
     </div>
+
 
 </body>
 <!-- <script src="assets/js/bla.js"></script> -->

@@ -94,12 +94,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <input class="input-field" type="time" name="start_tijd" required>
+                <input class="input-field" type="time" min="08:00" max="19:00" name="start_tijd" required>
                 <div class="error-message" id="start-tijd-error"></div>
             </div>
 
             <div class="form-group">
-                <input class="input-field" type="time" name="eind_tijd" required>
+                <input class="input-field" type="time" min="08:00" max="19:00" name="eind_tijd" required>
                 <div class="error-message" id="eind-tijd-error"></div>
             </div>
 
