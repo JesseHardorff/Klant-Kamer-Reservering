@@ -39,9 +39,6 @@
             <input type="date">
             <input type="search">
         </div>
-        <div class="table-header">
-            <!-- <p></p><p></p><p>Datum</p><p>Start tijd</p><p>Eind tijd</p><p>Lokaal</p><p>Gepland door</p><p>Klant</p> -->
-        </div>
         <div class="table-wrapper">
             <table>
                 <thead>

@@ -77,7 +77,6 @@ input, select {
 /* MARK: Table
 */
 
-
 th, td {
     padding:  8px;
     font-size: 2vw;
@@ -88,6 +87,7 @@ th, td {
 .table-wrapper {
     height: 60vh; /* Set a fixed height for scrolling */
     overflow-y: auto;
+    background-color: white;
     /* border: 1px solid #ccc; */
 }
 
@@ -95,7 +95,8 @@ th, td {
 table {
     width: 96vw;
     margin: 0 auto;
-    border-collapse: collapse;
+    border-collapse: separate;
+    background-color: white;
 }
 
 /* Make the table header sticky */
@@ -103,8 +104,12 @@ thead {
     position: sticky;
     top: 0;
     background: white; /* Ensure header remains visible */
+    /* border-left: 1px rgb(123, 31, 31) solid; */
     z-index: 2; /* Make sure it stays above the content */
-    /* border-bottom: 2px solid black; */
+    border-top: 2px solid black;
+    
+    /* border-collapse: separate; */
+    gap: 0;
 }
 
 /* Ensure th elements are styled properly */
@@ -112,11 +117,12 @@ th {
     padding: 10px;
     font-size: 1.8vw;
     font-weight: bold;
-    /* background-color: var(--bureau-orange); Match header color */
+    background-color: white;
     /* color: white; */
     text-align: left;
 
-    /* outline: 2px white solid; */
+    /* border: rgb(168, 27, 27) 4px solid; */
+    outline: 2px rgb(255, 255, 255) solid;
 }
 
 .table-item:nth-child(even) {
