@@ -169,7 +169,7 @@ th {
 
 .table-item td:nth-child(3),
 .table-header p:nth-child(3) {
-  width: 210px;
+  width: 140px;
   text-align: center;
 }
 
@@ -179,7 +179,7 @@ th {
 .table-header p:nth-child(4),
 .table-header p:nth-child(5),
 .table-header p:nth-child(6) {
-  width: 90px;
+  width: 110px;
   text-align: center;
 }
 
