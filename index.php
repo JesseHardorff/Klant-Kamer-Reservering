@@ -104,8 +104,8 @@ $stmt->close();
                     // Toon de gegevens in de juiste cellen
                 
                     echo '<div class="vandaag-div' . $row_num . '">Vandaag</div>';
-                    echo '<div class="vandaag-div' . ($row_num + 6) . '">' . $reservering['start_tijd'] . '</div>';
-                    echo '<div class="vandaag-div' . ($row_num + 12) . '">' . $reservering['eind_tijd'] . '</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 6) . '">' . date('H:i', strtotime($reservering['start_tijd'])) . '</div>';
+                    echo '<div class="vandaag-div' . ($row_num + 12) . '">' . date('H:i', strtotime($reservering['eind_tijd'])) . '</div>';
                     echo '<div class="vandaag-div' . ($row_num + 18) . '">' . $reservering['lokaal'] . '</div>';
                     echo '<div class="vandaag-div' . ($row_num + 24) . '">' . $reservering['student_nummer'] . '</div>';
                     echo '<div class="vandaag-div' . ($row_num + 30) . '">' . $reservering['klant'] . '</div>';
@@ -214,8 +214,8 @@ $stmt->close();
 
                     // Toon de gegevens in de juiste cellen
                     echo '<div class="plus-div' . ($row_num) . '">' . $datum_tekst . '</div>';
-                    echo '<div class="plus-div' . ($row_num + 6) . '">' . $reservering['start_tijd'] . '</div>';
-                    echo '<div class="plus-div' . ($row_num + 12) . '">' . $reservering['eind_tijd'] . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 6) . '">' . date('H:i', strtotime($reservering['start_tijd'])) . '</div>';
+                    echo '<div class="plus-div' . ($row_num + 12) . '">' . date('H:i', strtotime($reservering['eind_tijd'])) . '</div>';
                     echo '<div class="plus-div' . ($row_num + 18) . '">' . $reservering['lokaal'] . '</div>';
                     echo '<div class="plus-div' . ($row_num + 24) . '">' . $reservering['student_nummer'] . '</div>';
                     echo '<div class="plus-div' . ($row_num + 30) . '">' . $reservering['klant'] . '</div>';
