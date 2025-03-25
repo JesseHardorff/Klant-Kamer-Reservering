@@ -72,10 +72,10 @@
                                 <td class="item-edit">EDIT</td>
                                 <td class="item-delete">DELETE</td>
                                 <td class="editable" data-field="datum"><?= $formatted_date ?></td>
-                                <td class="editable" data-field="start_tijd"><?= $row['start_tijd'] ?></td>
-                                <td class="editable" data-field="eind_tijd"><?= $row['eind_tijd'] ?></td>
+                                <td class="editable" data-field="start_tijd"><?= date('H:i', strtotime($row['start_tijd'])) ?></td>
+                                <td class="editable" data-field="eind_tijd"><?= date('H:i', strtotime($row['eind_tijd'])) ?></td>
                                 <td class="editable" data-field="lokaal"><?= $row['lokaal'] ?></td>
-                                <td class="editable" data-field="student_nummer"><?= $row['student_nummer'] ?></td>
+                                <td class="editable" data-field="student_nummer"><?= $row['student_nummer'] ?></td> <!-- Het moet in de db opzoeken naar student naam mbv nummer en die ook laten zien -->
                                 <td class="editable" data-field="klant"><?= $row['klant'] ?></td>
                                 <td class="editable" data-field="type"><?= $row['type'] ?></td>
                             </tr>

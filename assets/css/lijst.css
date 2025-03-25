@@ -167,21 +167,24 @@ th {
   background-color: #df0202;
 }
 
+/* DATUM COLOM */
 .table-item td:nth-child(3),
 .table-header p:nth-child(3) {
-  width: 140px;
+  width: 110px;
   text-align: center;
 }
 
+/* START/EIND TIJD KOLOM */
 .table-item td:nth-child(4),
 .table-item td:nth-child(5),
 .table-item td:nth-child(6),
 .table-header p:nth-child(4),
 .table-header p:nth-child(5),
 .table-header p:nth-child(6) {
-  width: 110px;
+  width: 100px;
   text-align: center;
 }
+
 
 .table-item td:nth-child(8),
 .table-header p:nth-child(8) {
