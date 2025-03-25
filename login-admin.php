@@ -17,7 +17,8 @@
         <img src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
     </div>
     <div class="login">
-        <input type="numbers" placeholder="Student Nummer" class="input-field" pattern="[0-9]{6}" maxlength="6">
+        <input type="numbers" placeholder="Docent naam" class="input-field">
+        <input type="text" placeholder="Password" class="input-field">
         <button class="btn">Sign In</button>
         <p>Not a member? <a href="nos.nl"> Register</a></p>
         <p>Or <a href="nos.nl"> Select a Classroom</a></p>
