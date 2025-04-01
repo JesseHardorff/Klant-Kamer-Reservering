@@ -1,94 +1,78 @@
 body {
     background-color: var(--bureau-orange);
-}
-.menu {
-    height: 100vh;
-    width: 60%;
-    margin: auto;
-    background-color: var(--bureau-orange);
+    width: 100vw;
+    height: 100%;
 }
 
 .logo-container {
-    width: 90%;
-    height: 30vh;
+    /* width: 100vw; */
+    height: 40vh;
     display: flex;
     justify-content: center;
-    padding: 3% 10% 5% 0;
     align-items: center;
+    /* aspect-ratio: 1/1; */
 }
 
 .logo {
-    width: 80%;
-    max-width: 300px;
+    width: 60vw;
+    /* max-width: 300px; */
     aspect-ratio: 1/1;
+    margin: auto;
 }
 
 .student-number-container {
+    color: var(--bureau-wit);
+
+    height: 13vh;
+    width: 80vw;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     margin: 0 10%;
-    height: 13vh;
+
     border-bottom: 4px solid white;
-    width: 80%;
-}
 
-.student-number-container p {
-    margin-right: 15%;
-    color: var(--bureau-wit);
-}
-
-.student-number {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    font-size: clamp(2rem, 5vw, 5rem);
-}
-
-.student-number-text {
-    width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: clamp(1.3rem, 4vw, 3rem);
+    font-size: 8vw;
+    font-weight: bold;
 }
 
 .menu-buttons {
-    width: 100%;
+    color: var(--bureau-wit);
+
     height: 12vh;
-    margin: 10% 0;
+    width: 80vw;
+    
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 10%;
+    padding-top: 2vh;
+
+    gap: 1vh;
+
+    font-size: 8vw;
+    font-weight: bold;
 }
 
 .menu-buttons a {
     text-decoration: none;
     color: var(--bureau-wit);
+    display: flex;
 }
 
 .menu-buttons p {
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    color: var(--bureau-wit);
-    margin-left: 8%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-decoration: underline;
+    text-decoration-color: var(--bureau-wit);
+    text-underline-offset: 0.1em; /* Adjust the value to increase spacing */
 }
 
-.button-reserveringen,
-.button-instellingen {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-}
-
-.button-reserveringen p::before,
-.button-instellingen p::before {
+.menu-buttons a::before {
     content: "•";
     margin-right: 3vw;
+    /* text-decoration: none;    */
 }
