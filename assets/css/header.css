@@ -1,0 +1,197 @@
+:root {
+  --bureau-orange: #ff8f1c;
+  --bureau-wit: #f4f4f4;
+  --bureau-zwart: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "BUROTO", sans-serif;
+}
+
+
+@media (max-width: 1080px) {
+  .reserve-header {
+    display: flex;
+    
+    width: 85%;
+    height: 14vh;
+    padding: 0 0;
+    margin: 2vh 10vw 10vh 10vw;
+  }
+  
+  .HETBUREAU-LOGO {
+    z-index: 100;
+    height: 100%;
+    /* width: 50%; */
+  }
+  
+  .HETBUREAU-LOGO img {
+    height: 100%;
+    width: auto;
+  }
+  
+  .label:first-child {
+    border-radius: 0px 100px 0px 0px;
+  }
+  
+  .label {
+    background-color: var(--bureau-zwart);
+    color: var(--bureau-wit);
+    
+    /* height: 49.726px; */
+    height: 20%;
+    width: 200px;
+    
+    font-size: large;
+    font-weight: bold;
+  }
+  
+  .current {
+    background-color: var(--bureau-orange);
+    color: var(--bureau-wit);
+    
+    /* height: 74.589px; */
+    height: 30%;
+    width: 300px;
+    
+    font-size: 3.4em;
+    font-weight: bold;
+  }
+  
+  .current:last-child {
+    transform: translate(-100px, 0);
+    padding-left: 100px;
+    width: 50px;
+  }
+  
+  /* MARK: QR 
+  */
+  .qr {
+    color: var(--bureau-wit);
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .qr p {
+    background-color: var(--bureau-orange);
+    font-size: 1em;
+    font-weight: bold;
+    height: fit-content;
+    width: fit-content;
+  }
+  
+  .qr-box {
+    background-color: var(--bureau-orange);
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .qr-box img {
+    background-color: gray;
+    
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+  }
+}
+@media (min-width: 1920px) {
+  .reserve-header {
+    display: flex;
+    
+    width: 85%;
+    height: 14vh;
+    padding: 0 0;
+    margin: 2vh 10vw 10vh 10vw;
+  }
+  
+  .HETBUREAU-LOGO {
+    z-index: 100;
+    height: 100%;
+    /* width: 50%; */
+  }
+  
+  .HETBUREAU-LOGO img {
+    height: 100%;
+    width: auto;
+  }
+  
+  .label:first-child {
+    border-radius: 0px 100px 0px 0px;
+  }
+  
+  .label {
+    background-color: var(--bureau-zwart);
+    color: var(--bureau-wit);
+    
+    /* height: 49.726px; */
+    height: 20%;
+    width: 200px;
+    
+    font-size: large;
+    font-weight: bold;
+  }
+  
+  .current {
+    background-color: var(--bureau-orange);
+    color: var(--bureau-wit);
+    
+    /* height: 74.589px; */
+    height: 30%;
+    width: 300px;
+    
+    font-size: 3.4em;
+    font-weight: bold;
+  }
+  
+  .current:last-child {
+    transform: translate(-100px, 0);
+    padding-left: 100px;
+    width: 300px;
+  }
+  
+  /* MARK: QR 
+  */
+  .qr {
+    color: var(--bureau-wit);
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .qr p {
+    background-color: var(--bureau-orange);
+    font-size: 1em;
+    font-weight: bold;
+    height: fit-content;
+    width: fit-content;
+  }
+  
+  .qr-box {
+    background-color: var(--bureau-orange);
+    width: 100%;
+    height: 90%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-box img {
+  background-color: gray;
+  
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+}
+}
