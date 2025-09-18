@@ -64,6 +64,9 @@
     <?php endif; ?>
 
     <div class="data">
+        <h3>Studenten Nummer</h3>
+        <p><?php echo $student_nummer; ?></p>
+
         <h3>Lokaal</h3>
         <p><?php echo $lokaal; ?></p>
 

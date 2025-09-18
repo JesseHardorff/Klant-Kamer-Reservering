@@ -58,6 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
       isValid = false; // Formulier is niet geldig
     }
 
+    // Valideer het studentnummer
+    const studentNummer = form.querySelector('input[name="student"]');
+    if (!studentNummer.value) {
+      // Controleer of er een studentnummer is ingevuld
+      document.getElementById("student-error").textContent = "Vul een studentnummer in";
+      studentNummer.classList.add("error"); // Markeer het veld als fout
+      isValid = false; // Formulier is niet geldig
+    } else if (!/^\d{6}$/.test(studentNummer.value)) {
+      // Controleer of het studentnummer precies 6 cijfers bevat
+      document.getElementById("student-error").textContent = "Studentnummer moet uit 6 cijfers bestaan";
+      studentNummer.classList.add("error"); // Markeer het veld als fout
+      isValid = false; // Formulier is niet geldig
+    }
+
     // Controleer beschikbaarheid in de database als alle tijdvelden geldig zijn
     const lokaal = form.querySelector('select[name="lokaal"]');
     const datum = form.querySelector('input[name="datum"]');

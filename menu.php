@@ -10,7 +10,6 @@
 
     <link rel="icon" type="image/x-icon" href="BUREAU-LOGO.ico">
 </head>
-
 <body>
     <div class="logo-container">
         <img class="logo" src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
