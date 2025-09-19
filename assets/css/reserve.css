@@ -122,10 +122,10 @@ p a {
 /* Validation */
 
 .form-group {
-  width: 100%;
+  width: calc(100vw - 5vw);
   position: relative;
   margin-bottom: 10vw;
-  margin-left: 20px;
+  margin-left: 5vw;
 }
 
 .error-message {
