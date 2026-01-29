@@ -6,8 +6,8 @@
 - Improve CMS?
 
 ## INFO:
-**[Google Drive](https://drive.google.com/drive/folders/1Z6lwA7q-LwSepJPliSu6eTiFBDLbfvcP?usp=sharing)**
-**[Notion](https://www.notion.so/het-bureau/Ruimte-Reservering-Systeem-b6e3211aff794526a618e8a89bd8f6f5?source=copy_link)**
-**[Github](https://github.com/JesseHardorff/Klant-Kamer-Reservering/)**
-**Questions**
+**[Google Drive](https://drive.google.com/drive/folders/1Z6lwA7q-LwSepJPliSu6eTiFBDLbfvcP?usp=sharing)** <br>
+**[Notion](https://www.notion.so/het-bureau/Ruimte-Reservering-Systeem-b6e3211aff794526a618e8a89bd8f6f5?source=copy_link)** <br>
+**[Github](https://github.com/JesseHardorff/Klant-Kamer-Reservering/)** <br>
+**Questions** <br>
     For questions contact [Tristan van Buuren](https://github.com/TristanvanBuuren)
