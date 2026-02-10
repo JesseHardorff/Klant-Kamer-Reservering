@@ -11,26 +11,25 @@
     <link rel="icon" type="image/x-icon" href="BUREAU-LOGO.ico">
 </head>
 <body>
-    <div class="logo-container">
-        <img class="logo" src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
-    </div>
-    <div class="student-number-container">
-        <div class="student-number">
+    <header class="logo-container">
+        <img class="logo" src="Layer 2.png" alt="Het Bureau logo">
+    </header>
+
+    <section class="student-number-container" aria-labelledby="student-info">
+        <div id="student-info" class="student-number">
             <p>000000</p>
-            <!-- student numemr/naam uit database via php -->
         </div>
         <div class="student-number-text">
             <p>Naam</p>
         </div>
-    </div>
-    <div class="menu-buttons">
-        <a class="button-reserveringen" href="reserve.php">
-            <p>Reserveren</p>
-        </a>
-        <a class="button-instellingen" href="#">
-            <p>Reserveringen</p>
-        </a>
-    </div>
+    </section>
+
+    <nav class="menu-buttons" aria-label="Hoofdmenu">
+        <ul>
+            <li><a class="button-reserveringen" href="reserve.php">Reserveren</a></li>
+            <li><a class="button-reserveringen" href="lijst.php">Reserveringen</a></li>
+        </ul>
+    </nav>
 </body>
 
 </html>

@@ -12,16 +12,14 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-logo">
-            <img src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
-        </div>
-        <div class="header-text-wrapper">
-            <h1 class="header-text">Beheren</h1>
-            <p>als <i>docent naam</i></p>
-        </div>
+    <header class="logo-container">
+        <img class="logo" src="Layer 2.png" alt="Het Bureau logo">
     </header>
+    <main class="page-container">
+        <section class="page-header">
+            <h1>Beheren</h1>
+            <p>als <i>docent naam</i></p>
+        </section>
     <div class="content">
         <!-- Filter en zoekfunctie -->
         <div class="filter-bar">
