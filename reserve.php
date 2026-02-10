@@ -59,60 +59,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <div class="header">
-        <div class="header-logo">
-            <img src="Layer 2.png" alt="HETBUREAU-LOGO-ZWART">
-        </div>
-        <!-- <div class="header-text-wrapper">
-            <h1 class="header-text">Reserveren</h1>
-            <p>als <?php echo $student_nummer; ?></p>
-        </div> -->
-    </div>
-    <div class="reserve-info">
-        <h2>Reserveren</h2>
-        <p>reserveer een lokaal <br> voor een groepsbespreking, klant gesprek, ect</p>
-    </div>
-    <div class="form">
-        <form id="reservationForm" method="post" action="">
-            <div class="form-group"> <!-- Input field for student nummer -->
-                <input class="input-field" type="text" name="student" placeholder="Student nummer" pattern="[0-9]{6}" maxlength="6" required>
-                <div class="error-message" id="student-error"></div>
-            </div>
-            <div class="form-group"> <!-- Input field for Lokaal -->
-                <select class="input-field lokaal-select" name="lokaal" required>
-                    <option value="" disabled selected>Selecteer een lokaal</option>
-                    <option class="lokaal-option">W002a</option>
-                    <option class="lokaal-option">W002b</option>
-                    <option class="lokaal-option">W003a</option>
-                    <option class="lokaal-option">W003b</option>
-                </select>
-            </div>
-            <div class="form-group"> <!-- Input field for Datum -->
-                <input class="input-field" type="date" name="datum" required>
-            </div>
-            <div class="form-group"> <!-- Input field for Start tijd -->
-                <input class="input-field" type="time" min="08:00" max="19:00" name="start_tijd" required>
-                <div class="error-message" id="start-tijd-error"></div>
-            </div>
-            <div class="form-group"> <!-- Input field for Eind tijd -->
-                <input class="input-field" type="time" min="08:00" max="19:00" name="eind_tijd" required>
-                <div class="error-message" id="eind-tijd-error"></div>
-            </div>
-            <div class="form-group"> <!-- Input field for Klant -->
-                <input class="input-field" type="text" name="klant" placeholder="Klant" required>
-                <div class="error-message" id="klant-error"></div>
-            </div>
-            <div class="form-group"> <!-- Input field for Type -->
-                <select class="input-field type-select" name="type" required>
-                    <option value="" disabled selected>Selecteer een type</option>
-                    <option class="type-option">Klant gesprek</option>
-                    <option class="type-option">Team vergadering</option>
-                    <option class="type-option">Workshop</option>
-                </select>
-            </div>
-            <button class="submit-button" type="submit">VERSTUUR</button>
-        </form>
-    </div>
+    <header class="logo-container">
+        <img class="logo" src="Layer 2.png" alt="Het Bureau logo">
+    </header>
+
+    <main class="page-container">
+        <section class="reserve-info" aria-labelledby="reserveren-title">
+            <h2 id="reserveren-title">Reserveren</h2>
+            <p>Reserveer een lokaal voor een groepsbespreking of klantgesprek.</p>
+        </section>
+
+        <section class="form-container">
+            <form id="reservationForm" method="post" action="" novalidate>
+                <div class="form-group">
+                    <label for="student">Studentnummer</label>
+                    <input id="student" class="input-field" type="text" name="student" placeholder="000000" pattern="[0-9]{6}" maxlength="6" required>
+                    <div class="error-message" id="student-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lokaal">Lokaal</label>
+                    <select id="lokaal" class="input-field lokaal-select" name="lokaal" required>
+                        <option value="" disabled selected>Selecteer een lokaal</option>
+                        <option value="W002a">W002a</option>
+                        <option value="W002b">W002b</option>
+                        <option value="W003a">W003a</option>
+                        <option value="W003b">W003b</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group small">
+                        <label for="datum">Datum</label>
+                        <input id="datum" class="input-field" type="date" name="datum" required>
+                    </div>
+                    <div class="form-group small">
+                        <label for="start_tijd">Start tijd</label>
+                        <input id="start_tijd" class="input-field" type="time" min="08:00" max="19:00" name="start_tijd" required>
+                    </div>
+                    <div class="form-group small">
+                        <label for="eind_tijd">Eind tijd</label>
+                        <input id="eind_tijd" class="input-field" type="time" min="08:00" max="19:00" name="eind_tijd" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="klant">Klant</label>
+                    <input id="klant" class="input-field" type="text" name="klant" placeholder="Klant" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select id="type" class="input-field type-select" name="type" required>
+                        <option value="" disabled selected>Selecteer een type</option>
+                        <option value="Klant gesprek">Klant gesprek</option>
+                        <option value="Team vergadering">Team vergadering</option>
+                        <option value="Workshop">Workshop</option>
+                    </select>
+                </div>
+
+                <button class="submit-button" type="submit">Verstuur</button>
+            </form>
+        </section>
+    </main>
 
 </body>
 <script src="assets/js/validation.js"></script>

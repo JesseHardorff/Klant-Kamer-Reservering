@@ -1,270 +1,169 @@
-/* MARK: header
-*/
+:root {
+  --container-max: 1100px
+}
 
-.header {
-  height: 25vh;
-  width: 100%;
+body {
+  margin: 0
+}
 
-  margin-bottom: 2vh;
-
+.logo-container {
   display: flex;
-}
-
-.header-logo {
-  height: 20vh;
-  aspect-ratio: 1/1;
-
-  margin-top: 2.5vh;
-  margin-inline: 5vw;
-}
-
-.header-logo img {
-  width: 100%;
-  /* height: 60vw; */
-  aspect-ratio: 1/1;
-}
-
-.header-text-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-
-  margin-left: 40vw;
+  padding: 1rem 0
 }
 
-.header-text {
-  color: var(--bureau-zwart);
-
-  align-self: center;
-  margin-left: 12vw;
-  /* transform: translate(-50%); */
-
-  font-size: 4vw;
+.logo {
+  width: min(220px, 60vw);
+  height: auto;
+  display: block
 }
 
-.header-text-wrapper p {
-  transform: translate(50%);
-
-  font-size: 1.5vw;
+.page-container {
+  width: min(var(--container-max), 96%);
+  margin: 0 auto;
+  padding: 1rem 0
 }
 
-/* MARK: Content
-*/
-/* MARK: Filter
-*/
+.page-header {
+  margin: 0 0 1rem
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.35rem
+}
+
+.page-header p {
+  margin: 0;
+  color: rgba(0, 0, 0, .6)
+}
 
 .filter-bar {
-  background-color: var(--bureau-orange);
-  height: 5vh;
-  width: 93vw;
-  margin: 0 auto;
-  margin-bottom: 2vh;
-
   display: flex;
-  justify-content: end;
+  gap: .5rem;
+  justify-content: flex-end;
   align-items: center;
-  gap: 10px;
-  padding-right: 1vw;
+  background: var(--bureau-orange);
+  padding: .5rem;
+  border-radius: 6px
 }
 
-input,
-select {
-  border: none;
-  /* border-radius: 5px 0 0 5px; */
-  height: 3vh;
+.filter-bar input,
+.filter-bar select {
+  padding: .45rem .6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08)
 }
 
-/* MARK: Table
-*/
+.table-wrapper {
+  max-height: 60vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 6px
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  background: #fff
+}
 
 th,
 td {
-  padding: 8px;
-  font-size: 1.3vw;
-  font-family: "BUROTO", sans-serif;
+  padding: .5rem .75rem;
+  font-size: .95rem;
+  border-bottom: 1px solid #efefef
 }
 
-/* Wrapper to enable scrolling */
-.table-wrapper {
-  height: 60vh; /* Set a fixed height for scrolling */
-  overflow-y: auto;
-  background-color: white;
-  /* border: 1px solid #ccc; */
-}
-
-/* Ensure the table takes full width */
-table {
-  width: 96vw;
-  margin: 0 auto;
-  border-collapse: separate;
-  background-color: white;
-}
-
-/* Make the table header sticky */
 thead {
   position: sticky;
   top: 0;
-  background: white; /* Ensure header remains visible */
-  /* border-left: 1px rgb(123, 31, 31) solid; */
-  z-index: 2; /* Make sure it stays above the content */
-  border-top: 2px solid black;
-
-  /* border-collapse: separate; */
-  gap: 0;
+  background: #fff;
+  z-index: 3
 }
 
-/* Ensure th elements are styled properly */
 th {
-  padding: 10px;
-  font-size: 1.8vw;
-  font-weight: bold;
-  background-color: white;
-  /* color: white; */
-  text-align: left;
-
-  /* border: rgb(168, 27, 27) 4px solid; */
-  outline: 2px rgb(255, 255, 255) solid;
+  font-weight: 700;
+  text-align: left
 }
 
 .table-item:nth-child(even) {
-  background-color: #d2d2d2;
-  /* margin-top: 2px; */
-  /* margin-bottom: 2px; */
+  background: #f7f7f7
+}
+
+.item-edit,
+.item-delete {
+  display: inline-block;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer
 }
 
 .item-edit {
-  background-color: var(--bureau-orange);
-  color: var(--bureau-wit);
-
-  width: 90px;
-
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  /* padding: 5px 10px; */
-  cursor: pointer;
+  background: var(--bureau-orange)
 }
 
 .item-edit:hover {
-  background-color: #f28517;
+  opacity: .95
 }
 
 .item-delete {
-  background-color: red;
-  color: var(--bureau-wit);
-
-  width: 120px;
-
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  /* padding: 5px 10px; */
-  cursor: pointer;
+  background: #d32f2f
 }
 
-.item-delete:hover {
-  background-color: #df0202;
-}
-
-/* DATUM COLOM */
-.table-item td:nth-child(3),
-.table-header p:nth-child(3) {
-  width: 110px;
-  text-align: center;
-}
-
-/* START/EIND TIJD KOLOM */
-.table-item td:nth-child(4),
-.table-item td:nth-child(5),
-.table-item td:nth-child(6),
-.table-header p:nth-child(4),
-.table-header p:nth-child(5),
-.table-header p:nth-child(6) {
-  width: 100px;
-  text-align: center;
-}
-
-
-.table-item td:nth-child(8),
-.table-header p:nth-child(8) {
-  min-width: 300px;
-  width: fit-content;
-}
-/* MARK: buttons
-*/
-/* Aanvullende CSS voor edit functionaliteit */
-.item-edit.active {
-  background-color: #4caf50; /* Groen wanneer actief */
-}
-
-/* Bewerkbare cellen */
-.editable.editing {
-  padding: 0 !important;
-}
-
-.editable.editing input {
+.editable.editing input,
+.editable.editing select {
   width: 100%;
-  height: 100%;
-  padding: 8px;
-  border: none;
-  font-size: 1.3vw;
-  font-family: "BUROTO", sans-serif;
-  box-sizing: border-box;
+  padding: .4rem;
+  border-radius: 4px;
+  border: 1px solid #ddd
 }
 
-/* Modal styling */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 1000
 }
 
 .modal-content {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 5px;
-  width: 50%;
-  max-width: 500px;
+  background: #fff;
+  margin: 8% auto;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 480px
 }
 
 .modal-buttons {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  margin-top: 20px;
+  gap: .5rem;
+  margin-top: .75rem
 }
 
 .modal-buttons button {
-  padding: 8px 16px;
+  padding: .45rem .75rem;
+  border-radius: 6px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  cursor: pointer
 }
 
 #confirm-delete {
-  background-color: red;
-  color: white;
+  background: #d32f2f;
+  color: #fff
 }
 
 #cancel-delete {
-  background-color: #f0f0f0;
-  color: #333;
+  background: #f0f0f0
 }
-.editable.editing select {
-  width: 100%;
-  height: 100%;
-  padding: 8px;
-  border: none;
-  font-size: 1.3vw;
-  font-family: "BUROTO", sans-serif;
-  box-sizing: border-box;
-  background-color: #e8f4f8;
+
+@media(min-width:800px) {
+
+  th,
+  td {
+    font-size: 1rem
+  }
 }
